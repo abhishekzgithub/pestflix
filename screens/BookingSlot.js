@@ -1,7 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Platform } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Platform, SafeAreaView,ScrollView } from 'react-native';
 import { Button, Card, Title, Paragraph, Searchbar } from 'react-native-paper';
 import { en, registerTranslation, DatePickerModal } from 'react-native-paper-dates';
+import {RenderFooter} from "../components/CartFooter";
+import {bookingSlotData} from "../data/bookingslotdata";
 
 registerTranslation('en', en)
 
@@ -10,26 +12,41 @@ export default class BookingSlotScreen extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-        dateSelected: null,
+        date: null,
         open:false,
+        slot:null,
         };
     }
-
+    setSlot=(slot)=>{
+        console.log(slot)
+        this.setState({slot})
+    }
     onConfirmSingle=(dateSelected)=>{
-        this.setState(dateSelected)
-        this.onDismissSingle()
-
+        console.log(dateSelected)
+        
+        if(dateSelected.date){
+            this.setState(dateSelected)
+            this.onDismissSingle()
+        }
+        else{
+            return null;
+        }
     }
     onDismissSingle=()=>{
         this.setState({open:!this.state.open})
     }
 
     renderScreen=()=>{
-        console.log(this.state.date)
+        //console.log(this.state.dateSelected.date)
         return(
-            <View >
-                
-                <Button onPress={this.onDismissSingle}><Text>Please select a date of service</Text>
+            <ScrollView >
+                <Text style={styles.slotheaderlabelstyle}>When do you want the service?</Text>
+                <Button
+                    labelStyle={styles.slotlabelstyle}
+                    onPress={this.onDismissSingle}
+                    mode="contained"
+                    >
+                    {this.state.date?this.state.date.toDateString():"Select date"}
                     <DatePickerModal
                         locale="en"
                         mode="single"
@@ -43,53 +60,54 @@ export default class BookingSlotScreen extends React.Component {
                         disabledDates: [new Date()] // optional
                         }}
                         // onChange={} // same props as onConfirm but triggered without confirmed by user
-                        // saveLabel="Save" // optional
+                        saveLabel="Save Date" // optional
                         // uppercase={false} // optional, default is true
                         label="Select date" // optional
                         animationType="slide" // optional, default is 'slide' on ios/android and 'none' on web
                     />
                 </Button>
-                <Text>Select Time</Text>
-                <Card>
-                    <Card.Title title="Morning" />
-                    <Card.Actions>
-                        <Button onPress={()=>{alert("Added")}}>08:00 AM - 09:00 AM</Button>
-                        <Button onPress={()=>{alert("Added")}}>09:00 AM - 10:00 AM</Button>
-                        <Button onPress={()=>{alert("Added")}}>10:00 AM - 11:00 AM</Button>
-                        <Button onPress={()=>{alert("Added")}}>11:00 AM - 12:00 AM</Button>
-                    </Card.Actions>
-                </Card>
-                <Card>
-                    <Card.Title title="AfterNoon" />
-                    <Card.Actions>
-                        <Button onPress={()=>{alert("Added")}}>12:00 PM - 01:00 PM</Button>
-                        <Button onPress={()=>{alert("Added")}}>01:00 AM - 02:00 PM</Button>
-                        <Button onPress={()=>{alert("Added")}}>02:00 AM - 03:00 PM</Button>
-                        <Button onPress={()=>{alert("Added")}}>03:00 AM - 04:00 PM</Button>
-                        <Button onPress={()=>{alert("Added")}}>04:00 AM - 05:00 PM</Button>
-                        
-                    </Card.Actions>
-                </Card>
-                <Card>
-                    <Card.Title title="Evening" />
-                    <Card.Actions>
-                        <Button onPress={()=>{alert("Added")}}>05:00 AM - 06:00 PM</Button>
-                        <Button onPress={()=>{alert("Added")}}>06:00 AM - 07:00 PM</Button>
-                    </Card.Actions>
-                </Card>
-                
-            </View>
+                <Text style={styles.slotheaderlabelstyle}>Select Visit Time Slot</Text>
+                {
+                    bookingSlotData.map((item,index)=>{
+                        return(
+                        <Card key={index} 
+                        >
+                            <Card.Title title={Object.keys(item)[0]} />
+                            <Card.Actions  style={styles.slotcontainer}>
+                                {
+                                    Object.values(item).map((val,index)=>{
+                                        return(
+                                            val.map((slot, indx)=>{
+                                                return(
+                                                    <View key={indx}>
+                                                    <Button 
+                                                        onPress={this.setSlot.bind(this, slot)} 
+                                                        mode={this.state.slot==slot?"contained":"outlined"}
+                                                        labelStyle={styles.slotlabelstyle}
+                                                        >
+                                                        {slot}
+                                                        </Button>
+                                                        </View>
+                                                )
+                                            })
+                                        )
+                                    })
+                                }
+                            </Card.Actions>
+                        </Card>
+                        )
+                    })
+                }
+            </ScrollView>
         )
     }
-
-
     render(){
+        console.log(this.state)
         return(
-        <View style={styles.container}>
-            
+        <SafeAreaView style={styles.container}>
             {this.renderScreen()}
-            
-        </View>
+            <RenderFooter price={2300}/>
+        </SafeAreaView>
         );
     }
   
@@ -98,8 +116,35 @@ export default class BookingSlotScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    display:"flex",
+    flexDirection:"column",
     backgroundColor: '#fff',
-    //alignItems: 'center',
-    //justifyContent: 'center',
   },
+  slotcontainer:{
+    flex:1,  
+    display:"flex",
+    flexDirection:"row",
+    flexWrap:"wrap",
+    gap:"17px",
+  },
+  slotlabelstyle:{
+    fontFamily: "Roboto",
+    fontSize: 14,
+    fontStyle: "normal",
+    fontWeight: "700",
+    lineHeight: 16,
+    letterSpacing: "0em",
+    textAlign: "left",
+  },
+  slotheaderlabelstyle:{
+    fontFamily: "Roboto",
+    fontSize: 16,
+    fontStyle: "normal",
+    fontWeight: "700",
+    lineHeight: 19,
+    letterSpacing: "0em",
+    textAlign: "left",
+    color:"#474747"
+  }
+
 });

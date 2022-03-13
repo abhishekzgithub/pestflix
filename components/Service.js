@@ -17,7 +17,7 @@ export default class Service extends React.Component {
     renderExploreScreen=()=>{
         return(
             <TouchableOpacity onPress={()=>alert("hi")}>
-                <Card>
+                <Card style={styles.card}>
                     <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
                     <Card.Title 
                         title={this.state.title}
@@ -28,7 +28,7 @@ export default class Service extends React.Component {
     }
     render(){
         return(
-        <View style={styles.container}>
+        <View >
             {this.renderExploreScreen()}
         </View>
         );
@@ -38,9 +38,13 @@ export default class Service extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    // flex: 1,
+    // backgroundColor: '#fff',
+    // alignItems: 'center',
+    // justifyContent: 'center',
   },
+  card:{
+    // width:"120px",
+    // height:"120px"
+  }
 });

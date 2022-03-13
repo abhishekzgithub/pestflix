@@ -1,4 +1,4 @@
-const bookingslotdata=[
+export const bookingSlotData=[
 {
 "Morning":[
 "08:00 AM - 09:00 AM",

@@ -57,11 +57,7 @@ export default class OrderSummaryScreen extends React.Component{
             <Text>Abhishek Kumar</Text>
             <Text>Phone Number: 7277905904</Text>
             <Text>abcdefghklmn, bangalore, karnataka - 801503</Text>
-
-
-
-
-            <Button><Text>Confirm Order</Text></Button>
+             <Button><Text>Confirm Order</Text></Button>
 
             </View>
         )
