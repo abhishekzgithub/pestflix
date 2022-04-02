@@ -1,7 +1,8 @@
 import React from 'react';
 import { Button, TextInput, IconButton } from 'react-native-paper';
-import { StyleSheet, Text, View, Alert } from 'react-native';
+import { StyleSheet, Text, View, Alert, ScrollView } from 'react-native';
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
+//import { ScrollView } from 'react-native-web';
 
 export default class LoginScreen extends React.Component {
 
@@ -25,42 +26,35 @@ export default class LoginScreen extends React.Component {
 
     renderLoginScreen=()=>{
         return(
-            <SafeAreaProvider style={styles.container}>
-                <SafeAreaView 
-                  edges={['right', 'bottom', 'left','right']}
-                  
+            <SafeAreaProvider >
+                <ScrollView 
+                  style={styles.container}
+                  //edges={['right', 'bottom', 'left','right']}
                   >
-                <Text style={styles.welcomeback}>Welcome Back</Text>
-                <TextInput  label="Email" 
-                            mode="outlined" 
-                            onChangeText={this.setUsername}
-                            style={styles.textinputemail}
-                            value={this.state.email}>
-                </TextInput>
-                <TextInput label="Password" 
-                          mode="outlined"
-                          secureTextEntry
-                          onChangeText={this.setPassword}
-                          style={styles.textinputpassword}
-                          value={this.state.password}>
-                </TextInput>
-                <Button style={styles.forgotpassword} onPress={()=>{alert("forgot pwd?")}}>
-                  <Text>Forgot Password?</Text></Button>
-                <Button onPress={this.handleLoginButton} style={styles.loginbutton}>
-                  Login
-                </Button>
-                <Text style={styles.orcontinuewith}>Or Continue with</Text>
-                  <IconButton 
-                    icon="google-plus"
-                    color="red"
-                    style={styles.googleIcon}
-                    >
-                    Google
-                  </IconButton>
-                <Button dark style={styles.newusercreateaccount}>
-                {/* <Text>New User?</Text> */}
-                New User? Create Account</Button>
-              </SafeAreaView>
+                  <Text style={styles.welcomeback}>Welcome To Pestflix</Text>
+                  <TextInput  label="Email" 
+                              mode="outlined" 
+                              onChangeText={this.setUsername}
+                              style={styles.textinput}
+                              value={this.state.email}>
+                  </TextInput>
+                  <TextInput label="Password" 
+                            mode="outlined"
+                            secureTextEntry
+                            onChangeText={this.setPassword}
+                            style={styles.textinput}
+                            value={this.state.password}>
+                  </TextInput>
+                  <Button onPress={this.handleLoginButton} style={styles.loginbutton}>
+                    <Text style={styles.logintextStyle}>Login</Text>
+                  </Button>
+                  <Button style={styles.forgotpassword} onPress={()=>{alert("forgot pwd?")}}>
+                    <Text>Forgot Password?</Text>
+                  </Button>
+                  <Button dark style={styles.newusercreateaccount}>
+                  {/* <Text>New User?</Text> */}
+                  New User? Create Account</Button>
+              </ScrollView>
             </SafeAreaProvider>
         )
     }
@@ -72,45 +66,40 @@ export default class LoginScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    // display:"flex",
+    display:"flex",
+    flexDirection:"column",
+    border:"solid black",
+    //alignItems:"space-evenly",
+    //justifyContent:"space-evenly",
+    padding:19,
+    paddingTop:105,
     // flex: 1,
     // backgroundColor: '#fff',
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    marginBottom:"10%",
+    
   },
-  button:{
-    position: "absolute",
-    width: "335px",
-    height: "54px",
-    left: "20px",
-    top: "412px",
-
-    color: "black",
-    borderRadius: 12,
+  welcomeback:{
+    //flex:1,
+    padding:10,
+    //position: "absolute",
+    //width: "242px",
+    //height: "30px",
+    //left: "30px",
+    //top: "100px",
+    fontFamily: 'Poppins',
+    fontStyle: "normal",
+    fontWeight: "700",
+    fontSize: 30,
+    lineHeight: 30,
+    /* identical to box height, or 100% */
+    color: "#1A1D1E",
   },
-  textinputemail:{
-    position: "absolute",
-    width: "335px",
-    height: "54px",
-    left: "20px",
-    top: "218px",
-    backgroundColor: "#FFFFFF",
-  },
-  textinputpassword:{
-    position: "absolute",
-    width: "335px",
-    height: "54px",
-    left: "20px",
-    top: "296px",
+  textinput:{
+    margin:15,
+    //padding:5,
     backgroundColor: "#FFFFFF",
   },
   forgotpassword:{
-    position: "absolute",
-    width: "100%",
-    height: 12,
-    left: 20,
-    top: 360,
+    padding:10,
     fontFamily: 'Poppins',
     fontStyle: "normal",
     fontWeight: "400",
@@ -121,54 +110,49 @@ const styles = StyleSheet.create({
     //"#6A6A6A",
   },
   loginbutton:{
-    position: "absolute",
-    width: "335px",
-    height: "54px",
-    left: "20px",
-    top: "412px",
+    flex:1,
+    paddingTop:10,
+    padding:10,
+    margin:12,
     backgroundColor: "#4CA6A8",
     borderRadius: 12,
+    
   },
-  orcontinuewith:{
-    position: "absolute",
-    width: "134px",
-    height: "16px",
-    left: "121px",
-    top: "506px",
-
+  logintextStyle:{
     fontFamily: 'Poppins',
     fontStyle: "normal",
     fontWeight: "400",
-    fontSize: 16,
-    lineHeight: 16,
-    /* identical to box height, or 100% */
-
-
-    color: "#6A6A6A",
+    fontSize: 18,
+    //lineHeight: 35,
   },
-  welcomeback:{
-    position: "absolute",
-    width: "242px",
-    height: "30px",
-    left: "30px",
-    top: "100px",
+  orcontinuewith:{
+    padding:10,
+    flex:1,
+    display:"flex",
+    justifyContent: "center",
     fontFamily: 'Poppins',
     fontStyle: "normal",
-    fontWeight: "700",
-    fontSize: 30,
-    lineHeight: 30,
-    /* identical to box height, or 100% */
-    color: "#1A1D1E",
-
+    fontWeight: 400,
+    fontSize: 19,
+    lineHeight: 16,
+    color: "#6A6A6A",
   },
+  button:{
+    color: "black",
+    borderRadius: 12,
+  },
+  sns:{
+    //border:"solid black",
+    flex:1,
+    display:"flex",
+    flexDirection:"row",
+    alignItems:"center",
+    justifyContent: "center",
+    padding:10,
+  },
+
   newusercreateaccount:{
-    position: "absolute",
-    width: "100%",
-    height: "26px",
-    //left: "1px",
-    right:"13px",
-    top: "612px",
-    //bottom:"122px",
+    
     fontFamily: 'Poppins',
     fontStyle: "normal",
     fontWeight: "500",
@@ -179,13 +163,7 @@ const styles = StyleSheet.create({
     color: "#6A6A6A",
   },
   googleIcon:{
-    position: "absolute",
-    width: "60px",
-    height: "60px",
-    left: "129px",
-    top: "552px",
     color:"red",
-    backgroundColor: "#E9F4FF",
     borderRadius: 20,
   }
 

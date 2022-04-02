@@ -7,24 +7,12 @@ import { Grid, Box } from 'theme-ui';
 import {serviceList} from '../data/serviceList.js';
 import LocationPicker from '../components/LocationPicker'
 
-const RenderAvatar=()=>{
-    return(<View style={styles.avatar}>
-            <Avatar.Icon size={54} icon="account" />
-    </View>)
-}
 
 const RenderNameLocation=(props)=>{
     return(<View style={styles.namelocation}>
         <Text>Current Location</Text>
         <LocationPicker/>
     </View>)
-}
-const RenderBanner=()=>{
-    return(
-        <View style={styles.banner}>
-            <ServiceItem />
-        </View>
-    )
 }
 
 export default class ExploreScreen extends React.Component {
@@ -99,10 +87,14 @@ export default class ExploreScreen extends React.Component {
     }
     renderExploreScreen=(searchQuery)=>{
         return(
-            
+            <ScrollView
+            style={styles.exploreScreenContainer}
+            >
             <Grid 
-            //gap={2}
-             columns={[2, '1fr 2fr']}
+             //gap={2}
+             columns={[2,null, 4]}
+             repeat="fill"
+             //width={[100, null, 400]}
                 >
                     {
                         serviceList.map((item,index)=>{
@@ -113,7 +105,6 @@ export default class ExploreScreen extends React.Component {
                             }
                             else if (item.name.toLowerCase().includes(searchQuery.toLowerCase())){
                                 return(
-                                    //console.log(it)
                                     <Box bg="primary" key={index}><ServiceItem item={item.name}/></Box>
                                 )
                             }
@@ -124,18 +115,16 @@ export default class ExploreScreen extends React.Component {
                     }
                 
             </Grid>
-            
+            </ScrollView>
         )
     }
 
 
     render(){
-        console.log(this.state.searchQuery)
         return(
         <View style={styles.container}>
             <View style={styles.header}>
                 <RenderNameLocation name={this.state.name}/>
-                {/* <RenderAvatar/> */}
             </View>
             {this.renderSearch()}
             {this.renderBanner()}
@@ -151,11 +140,13 @@ const styles = StyleSheet.create({
    
     header:{
         flex:1,
-        flexDirection:"row"
+        flexDirection:"row",
+        padding:15,
     },
   container: {
     display: "flex",
     flexDirection:"column",
+    padding:15,
     //backgroundColor: '#fff',
     //alignItems: 'center',
     //justifyContent: 'center',
@@ -191,8 +182,6 @@ const styles = StyleSheet.create({
   exploreScreen:{
       flex:1,
       flexDirection:"row",
-      
-
   },
   banner:{
     // width: "328px",
@@ -203,11 +192,16 @@ const styles = StyleSheet.create({
     width: 336,
     //backgroundColor: "gold",
     margin: 10,
+    
     //border:"solid black",
   },
   bannerContainer:{
     display:"flex",
-    alignItems:"space-around"
+    alignItems:"space-around",
+    padding:15,
+  },
+  exploreScreenContainer:{
+    padding:15,
   },
   offerItem: {
     display: 'flex',

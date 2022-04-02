@@ -28,7 +28,7 @@ export default class App extends Component {
   }
   createDrawer = () => (
     <Drawer.Navigator
-      initialRouteName="Home"
+      initialRouteName="Login"
       //contentOptions={(activeTintColor = 'red')}
       // drawerContent={props => <CustomSidebarMenu {...props} />}
       >
