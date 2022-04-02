@@ -136,8 +136,8 @@ const styles = StyleSheet.create({
     textAlign: "left",
     //border:"solid green",
     alignSelf: 'baseline',
-    whiteSpace:"normal",
-    wordWrap: "break-word"
+    //whiteSpace:"normal",
+    //wordWrap: "break-word"
   },
   listitemstyle:{
     flex:1,
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     //flex:1,
     display:"flex",
     flexDirection:"row",
-    border:"solid inherit",
+    //border:"solid inherit",
     justifyContent:"space-evenly",
     paddingLeft:"25px",
     paddingRight:"25px",
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
     flex:1,
     display:"flex",
     //border:"solid blue",
-    gap:"3px",
+    //gap:"3px",
   },
   staticposition:{
     flex:1,
@@ -170,6 +170,6 @@ const styles = StyleSheet.create({
   },
   footerContainerButtonStyle:{
     backgroundColor:"#304FFE",
-    borderRadius: "4px",
+    borderRadius: 4,
   }
 });

@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     display:"flex",
     flexDirection:"row",
     flexWrap:"wrap",
-    gap:"17px",
+    //gap:"17px",
   },
   slotlabelstyle:{
     fontFamily: "Roboto",
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     fontStyle: "normal",
     fontWeight: "700",
     lineHeight: 16,
-    letterSpacing: "0em",
+    letterSpacing: 0,
     textAlign: "left",
   },
   slotheaderlabelstyle:{
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     fontStyle: "normal",
     fontWeight: "700",
     lineHeight: 19,
-    letterSpacing: "0em",
+    letterSpacing: 0,
     textAlign: "left",
     color:"#474747"
   }

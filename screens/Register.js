@@ -8,13 +8,11 @@ export default class RegisterScreen extends React.Component {
   constructor(props){
     super(props);
     this.state={
-      
       username:"",
+      phone:"",
       email:"",
       password:"",
       confirmPassword:""
-
-      
     };
   }
 
@@ -23,6 +21,9 @@ export default class RegisterScreen extends React.Component {
   }
   setEmail=(email)=>{
     this.setState({email})
+  }
+  setPhone=(phone)=>{
+    this.setState({phone})
   }
   setPassword=(password)=>{
     this.setState({password})
@@ -49,6 +50,13 @@ export default class RegisterScreen extends React.Component {
                     onChangeText={this.setEmail}
                     style={styles.textinputemail}
                     value={this.state.email}>
+                </TextInput>
+                <TextInput 
+                    label="Phone" 
+                    mode="outlined"
+                    onChangeText={this.setPhone}
+                    style={styles.textinputemail}
+                    value={this.state.phone}>
                 </TextInput>
                 <TextInput 
                     label="Password" 
