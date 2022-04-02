@@ -75,6 +75,7 @@ const styles = StyleSheet.create({
     paddingTop:105,
     // flex: 1,
     // backgroundColor: '#fff',
+    color:"black"
     
   },
   welcomeback:{

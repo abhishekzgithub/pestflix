@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 import { Button, TextInput, IconButton } from 'react-native-paper';
 
@@ -36,61 +36,61 @@ export default class RegisterScreen extends React.Component {
   }
   renderRegisterScreen=()=>{
         return(
-            <View>
+            <ScrollView style={styles.container}>
                 <TextInput 
                     label="User Name" 
                     mode="outlined"
                     onChangeText={this.setUsername}
-                    style={styles.textinputusername}
+                    style={styles.textinput}
                     value={this.state.username}>
                 </TextInput>
                 <TextInput 
                     label="Email Address" 
                     mode="outlined"
                     onChangeText={this.setEmail}
-                    style={styles.textinputemail}
+                    style={styles.textinput}
                     value={this.state.email}>
                 </TextInput>
                 <TextInput 
                     label="Phone" 
                     mode="outlined"
                     onChangeText={this.setPhone}
-                    style={styles.textinputemail}
+                    style={styles.textinput}
                     value={this.state.phone}>
                 </TextInput>
                 <TextInput 
                     label="Password" 
                     mode="outlined"
                     onChangeText={this.setPassword}
-                    style={styles.textinputpassword}
+                    style={styles.textinput}
                     value={this.state.password}>
                 </TextInput>
                 <TextInput 
                     label="Confirm Password" 
                     mode="outlined"
                     onChangeText={this.setConfirmPassword}
-                    style={styles.textinputconfirmPassword}
+                    style={styles.textinput}
                     value={this.state.confirmPassword}>
                 </TextInput>
-                <Button onPress={this.handleSingUpButton} style={styles.signup} color={"black"}>Sign up</Button>
-                <Text style={styles.orcontinuewith}>Or Continue with</Text>
-                  <IconButton 
-                    icon="google-plus"
-                    color="red"
-                    style={styles.googleIcon}
-                    >
-                    Google
-                  </IconButton>
-                <Button style={styles.newuserlogint} 
-                       color="black">
-                {/* <Text>New User?</Text> */}
-                Already Have Account? Log In</Button>
-                
-            </View>
+                <Button onPress={this.handleSingUpButton} 
+                        style={styles.signup} 
+                        color={"black"}
+                  >
+                    <Text style={styles.signupText} >
+                      Sign Up
+                    </Text>
+                  </Button>
+                <Button 
+                    onPress={this.handleSingUpButton}
+                    style={styles.loginfooter} 
+                    color="black">
+                <Text>
+                Already Have Account? Log In
+                </Text>
+                </Button>
+            </ScrollView>
         )
     }
-
-
     render(){
     return this.renderRegisterScreen();
   }
@@ -100,138 +100,37 @@ export default class RegisterScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     display:"flex",
-    flexDirection:"row",
-    // flex: 1,
-    backgroundColor: '#fff',
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    paddingBottom:"10%",
+    flexDirection:"column",
+    //border:"solid black",
+    padding:19,
+    paddingTop:10,
+    margin:25,
   },
-  button:{
-    position: "absolute",
-    width: "335px",
-    height: "54px",
-    left: "20px",
-    top: "412px",
-    color: "black",
-    borderRadius: 12,
-  },
-  textinputusername:{
-    position: "absolute",
-    width: "335px",
-    height: "54px",
-    left: "20px",
-    top: "102px",
+  textinput:{
+    margin:4,
     backgroundColor: "#FFFFFF",
-    borderRadius: 12,
-  },
-  textinputemail:{
-    position: "absolute",
-    width: "335px",
-    height: "54px",
-    left: "20px",
-    top: "170px",
-    backgroundColor: "#FFFFFF",
-  },
-  textinputpassword:{
-    position: "absolute",
-    width: "335px",
-    height: "54px",
-    left: "20px",
-    top: "234px",
-    backgroundColor: "#FFFFFF",
-  },
-  textinputconfirmPassword:{
-    position: "absolute",
-    width: "335px",
-    height: "54px",
-    left: "20px",
-    top: "296px",
-    backgroundColor: "#FFFFFF",
-  },
-  forgotpassword:{
-    position: "absolute",
-    width: "100%",
-    height: 12,
-    left: 20,
-    top: 360,
-    fontFamily: 'Poppins',
-    fontStyle: "normal",
-    fontWeight: "400",
-    fontSize: 12,
-    lineHeight: 12,
-    /* identical to box height, or 100% */
-    color: "black"
-    //"#6A6A6A",
   },
   signup:{
-    position: "absolute",
-    width: "335px",
+    flex:1,
+    margin:15,
     height: "54px",
-    left: "20px",
-    top: "412px",
     backgroundColor: "#4CA6A8",
     borderRadius: 12,
   },
-  orcontinuewith:{
-    position: "absolute",
-    width: "134px",
-    height: "16px",
-    left: "121px",
-    top: "506px",
-
+  signupText:{
     fontFamily: 'Poppins',
     fontStyle: "normal",
     fontWeight: "400",
-    fontSize: 16,
-    lineHeight: 16,
-    /* identical to box height, or 100% */
-
-
-    color: "#6A6A6A",
+    fontSize: 18,
   },
-  welcomeback:{
-    position: "absolute",
-    width: "242px",
-    height: "30px",
-    left: "30px",
-    top: "100px",
-    fontFamily: 'Poppins',
-    fontStyle: "normal",
-    fontWeight: "700",
-    fontSize: 30,
-    lineHeight: 30,
-    /* identical to box height, or 100% */
-    color: "#1A1D1E",
-
-  },
-  newuserlogint:{
-    position: "absolute",
-    width: "100%",
-    height: "26px",
-    //left: "1px",
-    right:"13px",
-    top: "612px",
-    //bottom:"122px",
+  loginfooter:{
     fontFamily: 'Poppins',
     fontStyle: "normal",
     fontWeight: "500",
     fontSize: 16,
     lineHeight: 26,
-    /* identical to box height, or 162% */
     textAlign: "center",
-    //color: "#6A6A6A",
     color:"black"
-  },
-  googleIcon:{
-    position: "absolute",
-    width: "60px",
-    height: "60px",
-    left: "129px",
-    top: "520px",
-    color:"red",
-    backgroundColor: "#E9F4FF",
-    borderRadius: 20,
   }
 
 });
