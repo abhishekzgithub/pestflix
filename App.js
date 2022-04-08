@@ -11,10 +11,11 @@ import {Component} from 'react';
 import Login from './screens/Login.js';
 import Register from './screens/Register';
 import Explore from './screens/Explore';
-import ServiceDetails from './components/ServiceDetails';
+import ServiceDetailsScreen from './screens/ServiceDetails';
+import ServiceCategoryItemDetailsScreen from './screens/ServiceCategoryItemDetails';
 import BookingSlot from './screens/BookingSlot';
 import OrderSummary from './screens/OrderSummary';
-import OrderConfirmationScreen from "./screens/OrderConfirmation"
+import OrderConfirmationScreen from "./screens/OrderConfirmation";
 //import LocationConfirmation from "../screens/LocationConfirmation"
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -28,7 +29,7 @@ export default class App extends Component {
   }
   createDrawer = () => (
     <Drawer.Navigator
-      initialRouteName="Register"
+      initialRouteName="Order Summary"
       //contentOptions={(activeTintColor = 'red')}
       // drawerContent={props => <CustomSidebarMenu {...props} />}
       >
@@ -36,10 +37,12 @@ export default class App extends Component {
        <Drawer.Screen name="Home" component={Explore} />
        <Drawer.Screen name="Login" component={Login} />
        <Drawer.Screen name="Register" component={Register} />
-       <Drawer.Screen name="ServiceDetails" component={ServiceDetails} />
+       <Drawer.Screen name="ServiceDetails" component={ServiceDetailsScreen} />
+       <Drawer.Screen name="ServiceItemDetails" component={ServiceCategoryItemDetailsScreen} />
        <Drawer.Screen name="BookingSlot" component={BookingSlot} />
-       <Drawer.Screen name="OrderSummary" component={OrderSummary} />
+       <Drawer.Screen name="Order Summary" component={OrderSummary} />
        <Drawer.Screen name="OrderConfirmationScreen" component={OrderConfirmationScreen} />
+       <Drawer.Screen name="NY Location" component={Explore} />
        <Drawer.Screen name="NY Bookings" component={Explore} />
        <Drawer.Screen name="NY Profile" component={Explore} />
        <Drawer.Screen name="NY Scheduled Bookings" component={Explore} />

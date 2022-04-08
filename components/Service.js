@@ -3,24 +3,23 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-nativ
 import { Button, Card, Title, Paragraph, Searchbar } from 'react-native-paper';
 
 
-export default class Service extends React.Component {
+export default class ServiceCard extends React.Component {
 
     constructor(props){
         super(props);
         this.state = {
-          title: this.props.item, 
-          searchText: null,
+          item: this.props.item,
         }
       }
 
     
     renderExploreScreen=()=>{
         return(
-            <TouchableOpacity onPress={()=>alert("hi")}>
+            <TouchableOpacity onPress={()=>alert("hi")} >
                 <Card style={styles.card}>
                     <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
                     <Card.Title 
-                        title={this.state.title}
+                        title={this.state.item}
                     />
                 </Card>
             </TouchableOpacity>

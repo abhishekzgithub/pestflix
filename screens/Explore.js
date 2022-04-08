@@ -118,8 +118,6 @@ export default class ExploreScreen extends React.Component {
             </ScrollView>
         )
     }
-
-
     render(){
         return(
         <View style={styles.container}>
@@ -128,17 +126,14 @@ export default class ExploreScreen extends React.Component {
             </View>
             {this.renderSearch()}
             {this.renderBanner()}
-                
             {this.renderExploreScreen(this.state.searchQuery)}
         </View>
         );
     }
-  
 }
 
 const styles = StyleSheet.create({
-   
-    header:{
+header:{
         flex:1,
         flexDirection:"row",
         padding:15,

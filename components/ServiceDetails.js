@@ -3,91 +3,31 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, SafeAreaView, Scro
 import { Button, Card, Title, Paragraph, List } from 'react-native-paper';
 import { Grid, Box } from 'theme-ui';
 import { serviceList } from '../data/serviceList';
+import ServiceCategoryCard from './ServiceCategoryCard';
 
-export default class ServiceDetails extends React.Component {
+export default class ServiceCategoryDetails extends React.Component {
 
     constructor(props){
         super(props);
         this.state = {
-          title: this.props.item, 
-          searchText: null,
-          service:serviceList[1],
+          item: this.props.serviceCategory, 
         }
-      }
-      renderFooter=()=>{
-        return(
-          <View 
-            //sx={styles.footerContainer}
-            style={styles.footerContainer}
-            >
-            <View style={styles.footerleftpart}>
-              <Text>Pest Service</Text>
-              <View></View>
-              <Text>Rs. {this.state.service.price}</Text>
-            </View>
-            <Button
-              onPress={()=>{alert("forgot pwd?")}}
-              mode="outlined"
-              color="white"
-              
-              contentStyle={styles.footerButtonContentStyle}
-              style={styles.footerContainerButtonStyle}
-              >
-              Book Now
-            </Button>
-          </View>
-        )
       }
       renderScreen=()=>{
         return(
-          <SafeAreaView>
-            <ScrollView >
-            <List.Section style={styles.liststyle}>
-              <List.Subheader>{this.state.service.details[0]}</List.Subheader>
-              {
-                this.state.service.details.slice(1,).map((item,index)=>{
-                  return(
-                    <Box  key={index}
-                      //style={{alignSelf: 'baseline'}}
-                     //width={["400px"]}
-                     >
-                    <List.Item 
-                        style={styles.listitemstyle}
-                        titleStyle={styles.listtext} 
-                        title={item} 
-                        left={() => <List.Icon icon="check-circle" color="green" />} 
-                        >
-                      </List.Item>
-                    </Box>
-                  )
-
-                })
-              }
-              {
-                this.state.service.details.slice(1,).map((item,index)=>{
-                  return(
-                    <Box  key={index}
-                      //style={{alignSelf: 'baseline'}}
-                     //width={["400px"]}
-                     >
-                    <List.Item 
-                        style={styles.listitemstyle}
-                        titleStyle={styles.listtext} 
-                        title={item} 
-                        left={() => <List.Icon icon="check-circle" color="green" />} 
-                        >
-                      </List.Item>
-                    </Box>
-                  )
-
-                })
-              }
+          <ScrollView style={styles.serviceCategoryDetailContainer}>
+            {
+              this.state.item.services.map((element, index)=>{
+                return(
+                  <ServiceCategoryCard 
+                    item={element.name}
+                    description={element.description}
+                    key={index}/>
+                )
+              })
+            }
               
-            </List.Section>
           </ScrollView>
-          {this.renderFooter()}
-          <View style={styles.staticposition}></View>
-          </SafeAreaView>
         )
       }
 
@@ -107,10 +47,14 @@ const styles = StyleSheet.create({
   container: {
     display:"flex",
     flexDirection:"column",
+
     //width:"400px",
-    backgroundColor: '#E5E5E5',
+    //backgroundColor: '#E5E5E5',
     // alignItems: 'center',
     // justifyContent: 'center',
+  },
+  serviceCategoryDetailContainer:{
+
   },
   liststyle: {
     flex:1,

@@ -49,11 +49,13 @@ export default class LoginScreen extends React.Component {
                     <Text style={styles.logintextStyle}>Login</Text>
                   </Button>
                   <Button style={styles.forgotpassword} onPress={()=>{alert("forgot pwd?")}}>
-                    <Text>Forgot Password?</Text>
+                    <Text style={{"color":"black"}}>Forgot Password?</Text>
                   </Button>
                   <Button dark style={styles.newusercreateaccount}>
-                  {/* <Text>New User?</Text> */}
-                  New User? Create Account</Button>
+                  <Text style={{"color":"black"}}>
+                    New User? Create Account
+                  </Text>
+                  </Button>
               </ScrollView>
             </SafeAreaProvider>
         )
@@ -92,12 +94,12 @@ const styles = StyleSheet.create({
     fontSize: 30,
     lineHeight: 30,
     /* identical to box height, or 100% */
-    color: "#1A1D1E",
+    //color: "#1A1D1E",
   },
   textinput:{
     margin:15,
     //padding:5,
-    backgroundColor: "#FFFFFF",
+    //backgroundColor: "#FFFFFF",
   },
   forgotpassword:{
     padding:10,
@@ -107,7 +109,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 12,
     /* identical to box height, or 100% */
-    color: "black"
+    textcolor: "black"
     //"#6A6A6A",
   },
   loginbutton:{
@@ -124,6 +126,7 @@ const styles = StyleSheet.create({
     fontStyle: "normal",
     fontWeight: "400",
     fontSize: 18,
+    color:"black"
     //lineHeight: 35,
   },
   orcontinuewith:{
@@ -161,7 +164,7 @@ const styles = StyleSheet.create({
     lineHeight: 26,
     /* identical to box height, or 162% */
     textAlign: "center",
-    color: "#6A6A6A",
+    color:"black"
   },
   googleIcon:{
     color:"red",

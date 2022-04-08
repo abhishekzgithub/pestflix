@@ -1,8 +1,8 @@
+import ServiceDetails from '../components/ServiceDetails';
 import React, { Component } from 'react';
-import OrderItemDetails from '../components/OrderItemDetails';
 import { servicePricingList } from '../data/servicePricingList';
 
-export default class OrderConfirmationItemDetailsScreen extends Component{
+export default class ServiceDetailsScreen extends Component{
     constructor(props){
         super(props);
         this.state = {
@@ -11,9 +11,7 @@ export default class OrderConfirmationItemDetailsScreen extends Component{
       }
     render(){
         return(
-            <OrderItemDetails serviceCategory={this.state.category}/>
+            <ServiceDetails serviceCategory={this.state.category}/>
         )
     }
 }
-
-  

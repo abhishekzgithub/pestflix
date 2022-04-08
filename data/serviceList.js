@@ -1,36 +1,57 @@
 export const serviceList=[
     {
-        name:"Termite Control",
-        
-
+        name:"Water Tank Cleaning",
+        id:1,
+        level:1,
+    },
+    {
+        name:"Septic Tank Cleaning",
+        level:2,
+        id:2,
     },
     {
         name:"Pest Control",
-        details:[
-            "One-time Pest Control Service",
-            "One single pest control service includes a comprehensive interior and exterior inspection and treatment",
-            "If pests come back within 30 days of your initial treatment, we’ll come back at no additional cost",
-            "Pay automatically after service has been completed",
-            "Perfect service to complete before listing your home to sell",
-            "Initial comprehensive interior and exterior inspection and treatment",
-        ],
-        price:2599,
-        
+        level:3,
+        id:3,
     },
     {
-        name:"Cockroach Control",
-        
+        name:"Bedbug Control",
+        level:4,
+        id:4,
     },
     {
-        name:"Rodent Control",
-        
+        name:"Termite Control",
+        level:5,
+        id:5,
+    },
+    {
+        name:"Swimming Pool Cleaning",
+        level:6,
+        id:6,
     },
     {
         name:"Mosquito Control",
-        
+        level:7,
+        id:7,
     },
     {
-        name:"Insect Control",
-        
+        name:"Rodent Control",
+        level:8,
+        id:8,
+    },
+    {
+        name:"Beehive Control",
+        level:9,
+        id:9,
+    },
+    {
+        name:"Beehive Control",
+        level:10,
+        id:10,
+    },
+    {
+        name:"Facade Glass Cleaning",
+        level:11,
+        id:11,
     }
 ]
