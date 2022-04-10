@@ -1,5 +1,6 @@
 {
   "main": "node_modules/expo/AppEntry.js",
+  "homepage": "https://www.appdev.website/",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -14,6 +15,7 @@
     "@react-native-community/datetimepicker": "4.0.0",
     "@react-native-material/core": "^1.3.6",
     "@react-navigation/drawer": "^6.4.1",
+    "@react-navigation/material-top-tabs": "^6.2.1",
     "@react-navigation/native-stack": "^6.6.1",
     "expo": "~44.0.0",
     "expo-asset": "~8.4.6",
@@ -29,11 +31,13 @@
     "react-native-reanimated": "~2.3.1",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.10.1",
+    "react-native-tab-view": "^3.1.1",
     "react-native-web": "0.17.1",
     "react-native-web-maps": "^0.3.0",
     "react-navigation": "^4.4.4",
     "react-navigation-stack": "^2.10.4",
-    "theme-ui": "^0.13.1"
+    "theme-ui": "^0.13.1",
+    "react-native-pager-view": "5.4.9"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
