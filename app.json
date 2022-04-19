@@ -28,6 +28,8 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "sdkVersion": "44.0.0"
+    "sdkVersion": "44.0.0",
+    "description": "",
+    "githubUrl": "https://github.com/abhishekzgithub/pestflix"
   }
 }
