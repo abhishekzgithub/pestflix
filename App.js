@@ -65,24 +65,27 @@ export default class App extends Component {
     <RootStack.Navigator
       screenOptions={{
         headerShown: false,
-        animationEnabled: true,
+        animationEnabled: false,
       }}
       >
       {/* <RootStack.Screen name="Main" component={this.MainStackScreen} /> */}
       
-      {/* <RootStack.Screen name="Login" component={Login} />
-      <RootStack.Screen name="Register" component={Register} /> */}
+      {/* 
+       */}
       {/* <RootStack.Screen name="OTP" component={OTPScreen} />
       <RootStack.Screen
         name="ForgetPassword"
         component={ForgotPasswordScreen}
       /> */}
-      
+      <RootStack.Screen name="HomeScreen" children={this.createDrawer} />
+      <RootStack.Screen name="Login" component={Login} />
+      <RootStack.Screen name="Register" component={Register} />
       <RootStack.Screen
         name="ProductView"
         component={this.ProductStackScreen}
       />
-      <RootStack.Screen name="HomeScreen" children={this.createDrawer} />
+      
+
     </RootStack.Navigator>
   );
 
