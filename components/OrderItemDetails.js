@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     flexDirection:"row",
     alignItems: "center",
     alignContent:"flex-end",
-    border:"solid black",
+    //border:"solid black",
     margin:10,
     padding:10,
   },
@@ -134,13 +134,13 @@ const styles = StyleSheet.create({
       margin:10,
   },
   datatableTextStyle:{
-    fontWeight: 800,
+    fontWeight: "800",
   },
   datatable:{
     margin:10,
     padding:10,
-    border:"solid black",
-    borderRadius:10,
+    //border:"solid black",
+    //borderRadius:10,
   },
   addresscardcontainer:{
       //flex:1,
@@ -149,8 +149,8 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     alignContent:"flex-start",
     justifyContent:"space-evenly",
-    border:"solid black",
-    borderRadius:10,
+    //border:"solid black",
+    //borderRadius:10,
     margin:10,
     padding:10,
 
@@ -170,12 +170,12 @@ const styles = StyleSheet.create({
   cardImage:{
     width:100,
     height:100,
-    position:"inherit"
+    position:"absolute",//"inherit"
   },
   card:{
     // display:"flex",
     // flexDirection:"row",
-    border:"solid black"
+    //border:"solid black"
     // width:"120px",
     // height:"120px"
   }

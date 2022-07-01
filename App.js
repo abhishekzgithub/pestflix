@@ -20,6 +20,8 @@ import OrderConfirmationScreen from "./screens/OrderConfirmation";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const RootStack = createNativeStackNavigator();
+const ProductStack = createNativeStackNavigator();
+
 const Drawer = createDrawerNavigator();
 
 export default class App extends Component {
@@ -29,7 +31,7 @@ export default class App extends Component {
   }
   createDrawer = () => (
     <Drawer.Navigator
-      initialRouteName="Order Summary"
+      initialRouteName="Home"
       //contentOptions={(activeTintColor = 'red')}
       // drawerContent={props => <CustomSidebarMenu {...props} />}
       >
@@ -51,6 +53,14 @@ export default class App extends Component {
     </Drawer.Navigator>
   );
 
+
+  ProductStackScreen=()=>(
+      <ProductStack.Navigator >
+            <ProductStack.Screen name="Home" component={Explore} />
+            <ProductStack.Screen name="ServiceDetails" component={ServiceDetailsScreen} />
+            <ProductStack.Screen name="ServiceItemDetails" component={ServiceCategoryItemDetailsScreen} />
+      </ProductStack.Navigator>
+      );
   RootStackScreen = () => (
     <RootStack.Navigator
       screenOptions={{
@@ -59,10 +69,7 @@ export default class App extends Component {
       }}
       >
       {/* <RootStack.Screen name="Main" component={this.MainStackScreen} /> */}
-      {/* <RootStack.Screen
-        name="ProductView"
-        component={this.ProductStackScreen}
-      /> */}
+      
       {/* <RootStack.Screen name="Login" component={Login} />
       <RootStack.Screen name="Register" component={Register} /> */}
       {/* <RootStack.Screen name="OTP" component={OTPScreen} />
@@ -70,9 +77,16 @@ export default class App extends Component {
         name="ForgetPassword"
         component={ForgotPasswordScreen}
       /> */}
+      
+      <RootStack.Screen
+        name="ProductView"
+        component={this.ProductStackScreen}
+      />
       <RootStack.Screen name="HomeScreen" children={this.createDrawer} />
     </RootStack.Navigator>
   );
+
+  
     render() {
     return <NavigationContainer>
       {this.RootStackScreen()}

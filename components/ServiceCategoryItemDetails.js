@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     flexDirection:"row",
     alignItems: "center",
     alignContent:"flex-end",
-    border:"solid black",
+    //border:"solid black",
     margin:10,
     padding:10,
     //justifyContent:"center",
@@ -80,12 +80,12 @@ const styles = StyleSheet.create({
   cardImage:{
     width:100,
     height:100,
-    position:"inherit"
+    position:"absolute"//"inherit"
   },
   card:{
     // display:"flex",
     // flexDirection:"row",
-    border:"solid black"
+    //border:"solid black"
     // width:"120px",
     // height:"120px"
   }

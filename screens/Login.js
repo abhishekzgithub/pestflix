@@ -31,7 +31,7 @@ export default class LoginScreen extends React.Component {
                   style={styles.container}
                   //edges={['right', 'bottom', 'left','right']}
                   >
-                  <Text style={styles.welcomeback}>Welcome To Pestflix</Text>
+                  <Text style={styles.welcomeback}>Welcome To ServiceLo</Text>
                   <TextInput  label="Email" 
                               mode="outlined" 
                               onChangeText={this.setUsername}
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   container: {
     display:"flex",
     flexDirection:"column",
-    border:"solid black",
+    //border:"solid black",
     //alignItems:"space-evenly",
     //justifyContent:"space-evenly",
     padding:19,
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     //height: "30px",
     //left: "30px",
     //top: "100px",
-    fontFamily: 'Poppins',
+    //fontFamily: 'Poppins',
     fontStyle: "normal",
     fontWeight: "700",
     fontSize: 30,
@@ -103,13 +103,13 @@ const styles = StyleSheet.create({
   },
   forgotpassword:{
     padding:10,
-    fontFamily: 'Poppins',
+    //fontFamily: 'Poppins',
     fontStyle: "normal",
     fontWeight: "400",
     fontSize: 12,
     lineHeight: 12,
     /* identical to box height, or 100% */
-    textcolor: "black"
+    //textColor: "black"
     //"#6A6A6A",
   },
   loginbutton:{
@@ -118,11 +118,11 @@ const styles = StyleSheet.create({
     padding:10,
     margin:12,
     backgroundColor: "#4CA6A8",
-    borderRadius: 12,
+    //borderRadius: 12,
     
   },
   logintextStyle:{
-    fontFamily: 'Poppins',
+    //fontFamily: 'Poppins',
     fontStyle: "normal",
     fontWeight: "400",
     fontSize: 18,
@@ -134,19 +134,19 @@ const styles = StyleSheet.create({
     flex:1,
     display:"flex",
     justifyContent: "center",
-    fontFamily: 'Poppins',
+    //fontFamily: 'Poppins',
     fontStyle: "normal",
-    fontWeight: 400,
+    fontWeight: "400",
     fontSize: 19,
     lineHeight: 16,
     color: "#6A6A6A",
   },
   button:{
     color: "black",
-    borderRadius: 12,
+    //borderRadius: 12,
   },
   sns:{
-    //border:"solid black",
+    ////border:"solid black",
     flex:1,
     display:"flex",
     flexDirection:"row",
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
 
   newusercreateaccount:{
     
-    fontFamily: 'Poppins',
+    //fontFamily: 'Poppins',
     fontStyle: "normal",
     fontWeight: "500",
     fontSize: 16,
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
   },
   googleIcon:{
     color:"red",
-    borderRadius: 20,
+    //borderRadius: 20,
   }
 
 });

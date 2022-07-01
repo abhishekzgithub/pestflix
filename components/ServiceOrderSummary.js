@@ -143,8 +143,8 @@ const styles = StyleSheet.create({
       //justifyContent: 'center',
     },
     ordercardcontainer:{
-        borderRadius:10,
-        border:"solid black",
+        //borderRadius:10,
+        //border:"solid black",
         display:"flex",
         flexDirection:"row",
         //width:800,
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
         flex:1,
         display:"flex",
         flexDirection:"column",
-        border:"solid black",
+        //border:"solid black",
         alignItems:"flex-start",
         justifyContent:"space-between"
         
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
         flex:1,
         display:"flex",
         flexDirection:"column",
-        border:"solid black",
+        //border:"solid black",
         alignItems:"flex-end",
         justifyContent:"space-between",
         

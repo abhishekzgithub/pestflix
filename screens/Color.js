@@ -6,7 +6,7 @@ export default {
   tabIconSelected: tintColor,
   tabBar: '#fefefe',
   errorBackground: 'red',
-  textColor: '#4F4F4F',
+  //textColor: '#4F4F4F',
   headingColor: '#2C2A35',
   taglineColor: '#707787',
   errorText: '#fff',
@@ -175,7 +175,7 @@ export default {
   dot_active: '#000000',
   dot_inactive: '#cccccc',
   backgroungColor: '#f5f5f5',
-  borderColor: '#B1B1B1',
+  //borderColor: '#B1B1B1',
   iconFillColor: '#B7DFC5',
 
   primary: '#7f71e7',

@@ -8,8 +8,6 @@ import {serviceList} from '../data/serviceList.js';
 import LocationPicker from '../components/LocationPicker'
 import { SearchBar } from '@rneui/themed';
 import { PricingCard, colors } from '@rneui/themed';
-import { servicePricingList } from '../data/servicePricingList';
-import { Card, ListItem, Button, Icon } from 'react-native-elements';
 
 const RenderNameLocation=(props)=>{
     return(<View style={styles.namelocation}>
@@ -24,7 +22,6 @@ export default class ExploreScreen extends React.Component {
         this.state={
             searchQuery:"",
             name:"Kamal",
-            servicePricingList: servicePricingList,
             offer: [
                 {
                   id: 1,
@@ -75,78 +72,6 @@ export default class ExploreScreen extends React.Component {
             </View>
         )
     }
-    renderWaterTankCleaning=()=>{
-        const watertankcleaningservices=this.state.servicePricingList[0].services
-        return(
-            <View style={styles.bannerContainer}>
-                <Text>{this.state.servicePricingList[0].name}</Text>
-                <Button 
-                    title="View all>>"
-                    onPress={()=>this.props.navigation.navigate("ServiceDetails")
-                    }
-                />
-            <FlatList
-                data={watertankcleaningservices}
-                horizontal
-                renderItem={({item, index}) => (
-                    <View
-                    style={styles.banner}
-                    key={index}
-                    >
-                    <Card>
-                        <Card.Title>{item.name}</Card.Title>
-                        <Card.Divider/>
-                        {/* <Card.Image source={require('../images/pic2.jpg')} /> */}
-                        <Text style={{marginBottom: 10}}>
-                        {watertankcleaningservices[index]['description']}
-                        </Text>
-                        <Button
-                            //icon={<Icon name='code' color='#ffffff' />}
-                            buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-                            title='VIEW NOW' />
-                        </Card>
-                    </View>
-                    
-                )}
-               keyExtractor={item => item.id}
-                />
-            </View>
-        )
-    }
-
-    renderPestControl=()=>{
-        const services=this.state.servicePricingList[1].services
-        return(
-            <View style={styles.bannerContainer}>
-                <Text>{this.state.servicePricingList[1].name}</Text>
-            <FlatList
-                data={services}
-                horizontal
-                renderItem={({item, index}) => (
-                    <View
-                    style={styles.banner}
-                    key={index}
-                    >
-                    <Card>
-                        <Card.Title>{item.name}</Card.Title>
-                        <Card.Divider/>
-                        {/* <Card.Image source={require('../images/pic2.jpg')} /> */}
-                        <Text style={{marginBottom: 10}}>
-                        {item['description']}
-                        </Text>
-                        <Button
-                            //icon={<Icon name='code' color='#ffffff' />}
-                            buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-                            title='VIEW NOW' />
-                        </Card>
-                    </View>
-                    
-                )}
-               keyExtractor={item => item.id}
-                />
-            </View>
-        )
-    }
     
     onChangeSearch=(searchQuery)=>{
         this.setState({searchQuery})
@@ -166,13 +91,13 @@ export default class ExploreScreen extends React.Component {
             <ScrollView
             style={styles.exploreScreenContainer}
             >
-            {/* <PricingCard
+            <PricingCard
                 //color={colors.primary}
                 title="Free"
                 price="$0"
                 info={['1 User', 'Basic Support', 'All Core Features']}
                 button={{ title: ' GET STARTED', icon: 'flight-takeoff' }}
-            /> */}
+            />
             {/* <Grid 
              //gap={2}
              columns={[2,null, 4]}
@@ -202,17 +127,14 @@ export default class ExploreScreen extends React.Component {
         )
     }
     render(){
-        console.log(this.props.navigation)
         return(
         <ScrollView style={styles.container}>
-            {/* <View style={styles.header}>
+            <View style={styles.header}>
                 <RenderNameLocation name={this.state.name}/>
             </View>
-            {this.renderSearch()}*/}
+            {this.renderSearch()}
             {this.renderBanner()}
-            {this.renderWaterTankCleaning()}
-            {this.renderPestControl()}
-            {/* {this.renderExploreScreen(this.state.searchQuery)} */}
+            {this.renderExploreScreen(this.state.searchQuery)}
         </ScrollView>
         );
     }

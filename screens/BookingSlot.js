@@ -1,10 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Platform, SafeAreaView,ScrollView , FlatList} from 'react-native';
 import { Button, Card, Title, Paragraph, Searchbar,  } from 'react-native-paper';
-import { en, registerTranslation, DatePickerModal } from 'react-native-paper-dates';
-import {bookingSlotData} from "../data/bookingslotdata";
-
-registerTranslation('en', en)
+import { bookingSlotData } from "../data/bookingslotdata";
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 export default class BookingSlotScreen extends React.Component {
 
@@ -14,21 +12,21 @@ export default class BookingSlotScreen extends React.Component {
         date: new Date(),
         open:false,
         slot:null,
+        selectedDate:new Date(),
         };
     }
     setSlot=(slot)=>{
         this.setState({slot})
     }
-    onConfirmSingle=(dateSelected)=>{
+    setSelectedDate=(dateSelected)=>{
+        console.log(dateSelected)
+        if(dateSelected.nativeEvent!=={} && dateSelected.type!="dismissed"){
+            this.setState({selectedDate:dateSelected.nativeEvent.timestamp,
+                open:!this.state.open})
+        }
         
-        if(dateSelected.date){
-            this.setState(dateSelected)
-            this.onDismissSingle()
-        }
-        else{
-            return null;
-        }
     }
+    
     onDismissSingle=()=>{
         this.setState({open:!this.state.open})
     }
@@ -51,27 +49,18 @@ export default class BookingSlotScreen extends React.Component {
                     style={styles.selectDateContainer}
                     >
                 <Text >
-                    {this.state.date?this.state.date.toDateString():"Select date"}
+                    {this.state.selectedDate?this.state.selectedDate.toDateString():"Select date"}
                 </Text>
-                <DatePickerModal
-                    
-                    locale="en"
-                    mode="single"
-                    visible={this.state.open}
-                    onDismiss={this.onDismissSingle}
-                    date={this.state.dateSelected}
-                    onConfirm={this.onConfirmSingle}
-                    validRange={{
-                    startDate: new Date(),//2021, 1, 2),  // optional
-                    endDate : this.getNext3Month(), //new Date(2022,6,1), // optional
-                    disabledDates: [new Date(), this.getNext3Month()] // optional
-                    }}
-                    // onChange={} // same props as onConfirm but triggered without confirmed by user
-                    saveLabel="Save Date" // optional
-                    // uppercase={false} // optional, default is true
-                    label="Select date" // optional
-                    animationType="slide" // optional, default is 'slide' on ios/android and 'none' on web
-                />
+                {this.state.open &&
+                <DateTimePicker
+                    testID="dateTimePicker"
+                    timeZoneOffsetInMinutes={0}
+                    value={this.state.selectedDate}
+                    mode="date"
+                    is24Hour={false}
+                    display="calendar"
+                    onChange={this.setSelectedDate}
+                    />}
                 </Button>
             </ScrollView>
         )
@@ -143,7 +132,7 @@ const styles = StyleSheet.create({
       flexDirection:"column",
       alignContent:"space-around",
       
-      border:"solid black",
+      //border:"solid black",
   },
   slotheaderlabelstyle:{
     flex:1,
@@ -175,7 +164,7 @@ const styles = StyleSheet.create({
     flexWrap:"wrap",
     //alignContent:"space-evenly",
     //gap:"17px",
-    border:"solid black",
+    //border:"solid black",
   },
   slotlabelstyle:{
     fontFamily: "Roboto",

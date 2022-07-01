@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
-import { Button, Card, Title, Paragraph, List } from 'react-native-paper';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, SafeAreaView, ScrollView, Button } from 'react-native';
+import {  Card, Title, Paragraph, List } from 'react-native-paper';
 import { Grid, Box } from 'theme-ui';
 import { serviceList } from '../data/serviceList';
 import ServiceCategoryCard from './ServiceCategoryCard';
@@ -15,6 +15,8 @@ export default class ServiceCategoryDetails extends React.Component {
       }
       renderScreen=()=>{
         return(
+          
+
           <ScrollView style={styles.serviceCategoryDetailContainer}>
             {
               this.state.item.services.map((element, index)=>{
@@ -35,6 +37,11 @@ export default class ServiceCategoryDetails extends React.Component {
         return(
         <View style={styles.container}>
             {/* {this.renderServiceDetails()} */}
+            {/* <Button 
+              title="Go to Home" 
+              onPress={()=>this.props.navigation.navigate("Home")} 
+              
+              /> */}
             {this.renderScreen()}
             
         </View>
@@ -63,7 +70,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     //overflow:"hidden",
     //justifyContent: 'space-between',
-    //border:"solid black",
+    ////border:"solid black",
     //width:"500px"
     
 
@@ -78,7 +85,7 @@ const styles = StyleSheet.create({
     lineHeight: 14,
     //letterSpacing: "0em",
     textAlign: "left",
-    //border:"solid green",
+    ////border:"solid green",
     alignSelf: 'baseline',
     //whiteSpace:"normal",
     //wordWrap: "break-word"
@@ -86,13 +93,13 @@ const styles = StyleSheet.create({
   listitemstyle:{
     flex:1,
     //flexWrap:"wrap",
-    //border:"solid pink"
+    ////border:"solid pink"
   },
   footerContainer:{
     //flex:1,
     display:"flex",
     flexDirection:"row",
-    //border:"solid inherit",
+    ////border:"solid inherit",
     justifyContent:"space-evenly",
     paddingLeft:"25px",
     paddingRight:"25px",
@@ -101,7 +108,7 @@ const styles = StyleSheet.create({
   footerleftpart:{
     flex:1,
     display:"flex",
-    //border:"solid blue",
+    ////border:"solid blue",
     //gap:"3px",
   },
   staticposition:{
@@ -114,6 +121,6 @@ const styles = StyleSheet.create({
   },
   footerContainerButtonStyle:{
     backgroundColor:"#304FFE",
-    borderRadius: 4,
+    //borderRadius: 4,
   }
 });

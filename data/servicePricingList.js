@@ -1,6 +1,7 @@
 export const servicePricingList=[
     {
         type:"watertankcleaning",
+        name:"Water Tank",
         description:"Water Tank Cleaning Services",
         services:[
             {
@@ -92,6 +93,7 @@ export const servicePricingList=[
     },
     {
         type:"pest",
+        name:"Pest Control",
         description:"Pest Control",
         services:[
             {

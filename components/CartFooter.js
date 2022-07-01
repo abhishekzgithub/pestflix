@@ -47,7 +47,7 @@ export const RenderFooter=(props)=>{
       flexDirection: 'column',
       //overflow:"hidden",
       //justifyContent: 'space-between',
-      //border:"solid black",
+      ////border:"solid black",
       //width:"500px"
       
   
@@ -62,7 +62,7 @@ export const RenderFooter=(props)=>{
       lineHeight: 14,
       //letterSpacing: "0em",
       textAlign: "left",
-      //border:"solid green",
+      ////border:"solid green",
       alignSelf: 'baseline',
       //whiteSpace:"normal",
       //wordWrap: "break-word"
@@ -70,13 +70,13 @@ export const RenderFooter=(props)=>{
     listitemstyle:{
       flex:1,
       //flexWrap:"wrap",
-      //border:"solid pink"
+      ////border:"solid pink"
     },
     footerContainer:{
       //flex:1,
       display:"flex",
       flexDirection:"row",
-      //border:"solid inherit",
+      ////border:"solid inherit",
       justifyContent:"space-evenly",
       paddingLeft:"25px",
       paddingRight:"25px",
@@ -85,7 +85,7 @@ export const RenderFooter=(props)=>{
     footerleftpart:{
       flex:1,
       display:"flex",
-      //border:"solid blue",
+      ////border:"solid blue",
       //gap:"3px",
     },
     staticposition:{
@@ -98,6 +98,6 @@ export const RenderFooter=(props)=>{
     },
     footerContainerButtonStyle:{
       backgroundColor:"#304FFE",
-      //borderRadius: "4px",
+      ////borderRadius: "4px",
     }
   });
